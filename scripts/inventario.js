@@ -101,19 +101,18 @@ form.addEventListener("submit", async (e) => {
     };
 
     try {
-        // Subir la imagen a Firebase Storage
         if (fotoFile) {
-    const formData = new FormData();
-    formData.append("image", fotoFile);
+            const formData = new FormData();
+            formData.append("image", fotoFile);
 
-    const response = await fetch("https://api.imgbb.com/1/upload?key=e8b72545a514b6da09673f2dc63502e9", {
-        method: "POST",
-        body: formData
-    });
+            const response = await fetch("https://api.imgbb.com/1/upload?key=e8b72545a514b6da09673f2dc63502e9", {
+                method: "POST",
+                body: formData
+            });
 
-    const data = await response.json();
-    producto.foto = data.data.url;  // URL final de la imagen
-}
+            const data = await response.json();
+            producto.foto = data.data.url;
+        }
 
 
         // Guardar el producto en Firestore
