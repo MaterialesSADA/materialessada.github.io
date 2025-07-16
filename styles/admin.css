@@ -1,8 +1,10 @@
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -13,7 +15,7 @@ html, body {
     font-size: 1.2rem;
     font-family: Arial, sans-serif;
     margin: 0;
-    
+
 }
 
 .navbar ul {
@@ -77,7 +79,7 @@ iframe {
     text-decoration: none;
     font-weight: bold;
     font-size: 1.3rem;
-    padding: 10px 10px; 
+    padding: 10px 10px;
     transition: box-shadow 0.1s ease, background-color 0.1s ease;
     position: relative;
 }
@@ -85,7 +87,156 @@ iframe {
 .navbar ul li a.active {
     text-decoration: underline;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.726);
-    background-color: rgba(255, 255, 255, 0.171); 
-    border-radius: 10px; 
+    background-color: rgba(255, 255, 255, 0.171);
+    border-radius: 10px;
 }
+
+/* Ocultar botón hamburguesa por defecto (solo mostrar en móvil) */
+#hamburger-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
+
+/* Contenedor del menú */
+.titulos {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    /* Por defecto horizontal */
+}
+
+/* Estilos para móvil */
+@media (max-width: 768px) {
+
+    /* Mostrar botón hamburguesa */
+    #hamburger-btn {
+        display: block;
+    }
+
+    /* El menú debe estar oculto por defecto, como panel lateral */
+    .titulos {
+        position: fixed;
+        top: 0;
+        left: -250px;
+        /* fuera de pantalla */
+        width: 250px;
+        height: 100vh;
+        background-color: #005BC2;
+        flex-direction: column;
+        padding-top: 60px;
+        transition: left 0.3s ease;
+        z-index: 1000;
+    }
+
+    /* Mostrar el menú cuando esté activo (clase .open) */
+    .titulos.open {
+        left: 0;
+    }
+
+    /* Estilo de los enlaces en menú móvil (vertical) */
+    .titulos li {
+        margin: 15px 0;
+        padding-left: 20px;
+    }
+
+    .titulos li a {
+        font-size: 1.5rem;
+        display: block;
+        padding: 10px 0;
+    }
+
+    /* Para que el user-info no se pierda o se adapte mejor en móvil */
+    .user-info {
+        display: none;
+        /* Por simplicidad ocultamos en móvil, o podrías ponerlo en otro lugar */
+    }
+}
+
+/* Estilo para el overlay que bloquea el contenido cuando menú está abierto */
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 900;
+}
+
+#overlay.active {
+    display: block;
+}
+
+/* Elimina esta regla o coméntala */
+
+/* Solo ocultar en escritorio */
+@media (min-width: 769px) {
+    .mobile-user-info {
+        display: none;
+    }
+}
+
+/* Mostrar en móvil */
+@media (max-width: 768px) {
+    .mobile-user-info {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .mobile-user-info span {
+        color: white;
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+
+    .mobile-user-info button {
+        background-color: #E30000;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        font-weight: bold;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+
+    .mobile-user-info button:hover {
+        background-color: #C20000;
+    }
+
+    .mobile-user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.mobile-user-info span {
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+
+    /* Para que el texto se quiebre sin salirse */
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+}
+
 

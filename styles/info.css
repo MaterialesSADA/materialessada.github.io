@@ -2,8 +2,10 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin: 2em 2em;
+  margin: 2em;
   margin-top: 3%;
+  gap: 2em;
+  flex-wrap: wrap;
 }
 
 .info {
@@ -38,4 +40,21 @@ p {
 
 .footer-container p, .footer-bottom p {
   color: white;
+}
+
+/* Para pantallas pequeñas */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Apila los elementos */
+    margin: 1em;
+  }
+
+  .location {
+    height: 300px; /* Reduce el alto del mapa en móvil */
+  }
+
+  iframe {
+    width: 100%;
+    height: 100%;
+  }
 }

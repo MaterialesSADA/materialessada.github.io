@@ -148,3 +148,55 @@ button.toggle-button.inactive:hover {
 .message-error {
     color: red;
 }
+
+@media (max-width: 768px) {
+    .content-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .user-management {
+        width: 95%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        padding: 10px;
+    }
+
+    .user-form,
+    .user-list {
+        padding: 15px;
+    }
+
+    .user-form input,
+    .user-form select,
+    .user-form button {
+        font-size: 0.95rem;
+    }
+
+    .user-list table {
+        display: block;
+        overflow-x: auto;
+        width: 100%;
+    }
+
+    .user-list table th,
+    .user-list table td {
+        white-space: nowrap;
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    .delete-button,
+    button.toggle-button {
+        font-size: 0.85rem;
+        padding: 6px 12px;
+    }
+
+    #message-container {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+}

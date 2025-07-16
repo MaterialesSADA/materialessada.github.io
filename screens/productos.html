@@ -13,18 +13,32 @@
 
   <!--Navegación-->
   <nav>
+    <button id="hamburger" class="hamburger">&#9776;</button>
+
     <div class="banner">
       <img src="/images/logo.jpeg" alt="Logo de Materiales SADA" class="logo">
       <h1>Materiales SADA</h1>
     </div>
+
     <ul class="menu">
       <li><a href="../index.html">Menú</a></li>
-      <li><a href="productos.html">Productos</a></li>
-      <li><a href="informacion.html">Conócenos</a></li>
+      <li><a href="/screens/productos.html">Productos</a></li>
+      <li><a href="/screens/informacion.html">Conócenos</a></li>
     </ul>
   </nav>
 
+  <!-- AÑADE ESTO ABAJO -->
+  <div id="sidebar" class="sidebar">
+    <span id="closeSidebar" class="close-btn">&times;</span>
+    <ul>
+      <li><a href="../index.html">Menú</a></li>
+      <li><a href="/screens/productos.html">Productos</a></li>
+      <li><a href="/screens/informacion.html">Conócenos</a></li>
+    </ul>
+  </div>
+
   <!-- Filtros -->
+   <button id="toggle-filtros" class="toggle-filtros">Mostrar filtros</button>
   <section class="filtros">
 
     <label for="filtro-nombre">Nombre:</label>
@@ -51,15 +65,15 @@
     <button id="quitar-filtros" aria-label="Quitar todos los filtros">Quitar filtros</button>
 
   </section>
-  
+
 
   <!--Productos-->
-<div class="container">
-  <section class="container">
-    <h2>Productos</h2> <!-- Encabezado que identifica la sección -->
-    <div id="productos-container" class="productos"></div>
-  </section>
-</div>
+  <div class="container">
+    <section class="container">
+      <h2>Productos</h2> <!-- Encabezado que identifica la sección -->
+      <div id="productos-container" class="productos"></div>
+    </section>
+  </div>
 
 
 
@@ -96,6 +110,7 @@
   </footer>
 
   <script type="module" src="/scripts/productos.js"></script>
+  <script type="module" src="/scripts/general.js"></script>
 </body>
 
 </html>

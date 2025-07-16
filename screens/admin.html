@@ -1,18 +1,34 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Administración - Materiales SADA</title>
-    <link rel="stylesheet" href="/styles/admin.css">
+    <link rel="stylesheet" href="/styles/admin.css" />
 </head>
+
 <body>
     <header>
         <nav class="navbar">
-            <ul class="titulos">
-                <li><a href="#" id="inventory-link" data-page="inventario.html" class="active">Gestión de Inventario</a></li>
+            <button id="hamburger-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+                &#9776;
+            </button>
+
+            <ul class="titulos" id="mobile-menu">
+                <li><a href="#" id="inventory-link" data-page="inventario.html" class="active">Gestión de Inventario</a>
+                </li>
                 <li><a href="#" id="users-link" data-page="usuarios.html">Gestión de Usuarios</a></li>
+
+                <!-- Aquí incluimos el bloque user-info para móvil dentro del menú -->
+                <li class="mobile-user-info">
+                    <span id="welcome-message-mobile">Bienvenido, <span id="user-name-mobile"></span></span>
+                    <button id="account-link-mobile" data-page="cuenta.html">Datos de la Cuenta</button>
+                    <button id="logout-button-mobile">Cerrar Sesión</button>
+                </li>
             </ul>
+
+            <!-- En escritorio mostramos user-info afuera del menú -->
             <div class="user-info">
                 <span id="welcome-message">Bienvenido, <span id="user-name"></span></span>
                 <button id="account-link" data-page="cuenta.html">Datos de la Cuenta</button>
@@ -27,4 +43,5 @@
 
     <script type="module" src="/scripts/admin.js"></script>
 </body>
+
 </html>

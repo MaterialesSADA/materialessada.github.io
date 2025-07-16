@@ -170,3 +170,63 @@
   border-radius: 10px;
   margin-bottom: 20px;
 }
+
+@media (max-width: 768px) {
+  /* Carrusel adaptativo */
+  .anuncios {
+    width: 100%;
+    height: auto;
+  }
+
+  .carousel {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .slide img {
+    height: auto;
+  }
+
+  .carousel-button {
+    font-size: 1.5rem;
+    padding: 6px;
+  }
+
+  .indicators {
+    bottom: 10px;
+    gap: 6px;
+  }
+
+  .indicator {
+    width: 8px;
+    height: 8px;
+  }
+
+  .indicator.active {
+    width: 12px;
+    height: 12px;
+  }
+
+  /* Destacados */
+  .producto {
+    width: 90%;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+
+  .destacados h2 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  /* Pop-up adaptado */
+  .pop-up-content {
+    width: 95%;
+    max-width: 90%;
+    padding: 15px;
+  }
+
+  .cerrar-pop-up {
+    font-size: 24px;
+  }
+}

@@ -144,3 +144,52 @@ textarea {
     border-radius: 5px;
 }
 
+@media (max-width: 768px) {
+    .content-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .user-form,
+    .user-list {
+        padding: 15px;
+        min-width: 100%;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        padding: 10px;
+    }
+
+    .user-form input,
+    .user-form textarea,
+    .user-form select,
+    .user-form button {
+        font-size: 0.95rem;
+    }
+
+    .user-list table {
+        display: block;
+        overflow-x: auto;
+        width: 100%;
+    }
+
+    .user-list table th,
+    .user-list table td {
+        white-space: nowrap;
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    .user-list table .editar,
+    .user-list table .eliminar {
+        width: 90px;
+        height: 35px;
+        font-size: 0.85rem;
+        line-height: 35px;
+    }
+
+    .user-list img {
+        max-width: 80px;
+    }
+}

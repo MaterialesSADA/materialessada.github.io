@@ -162,3 +162,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+const toggleBtn = document.getElementById("toggle-filtros");
+  const filtros = document.querySelector(".filtros");
+
+  toggleBtn.addEventListener("click", () => {
+    filtros.classList.toggle("mostrar");
+    toggleBtn.textContent = filtros.classList.contains("mostrar") ? "Ocultar filtros" : "Mostrar filtros";
+  });
