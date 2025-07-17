@@ -38,7 +38,7 @@
   </div>
 
   <!-- Filtros -->
-   <button id="toggle-filtros" class="toggle-filtros">Mostrar filtros</button>
+  <button id="toggle-filtros" class="toggle-filtros">Mostrar filtros</button>
   <section class="filtros">
 
     <label for="filtro-nombre">Nombre:</label>
@@ -66,7 +66,6 @@
 
   </section>
 
-
   <!--Productos-->
   <div class="container">
     <section class="container">
@@ -74,8 +73,6 @@
       <div id="productos-container" class="productos"></div>
     </section>
   </div>
-
-
 
   <!-- Pop-up para detalles del producto -->
   <div id="producto" class="pop-up">
@@ -99,14 +96,16 @@
         <h3>Materiales SADA</h3>
       </div>
       <div class="footer-info">
-        <p>Dirección: Lázaro Cárdenas No. 1705 Col. Puerto México Coatzacoalcos, Ver.</p>
-        <p>Teléfono: (+52) 9211101741</p>
-        <p>Email: m2gise@hotmail.com</p>
+        <p id="footer-direccion"></p>
+        <p id="footer-telefono"></p>
+        <p id="footer-email"></p>
       </div>
+
     </div>
-    <div class="footer-bottom">
-      <p>&copy; 2024 Materiales SADA. Todos los derechos reservados.</p>
+    <div class="footer-bottom" id="footer-bottom-text">
+      <!-- Aquí se llenará dinámicamente -->
     </div>
+
   </footer>
 
   <script type="module" src="/scripts/productos.js"></script>

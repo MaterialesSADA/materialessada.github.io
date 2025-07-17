@@ -36,27 +36,19 @@
     </ul>
   </div>
 
-  <!--Carrusel-->
+  <!-- Carrusel dinámico -->
   <section class="anuncios">
-    <div class="carousel">
-      <div class="slide">
-        <img src="/images/anuncio1.jpg" alt="Anuncio 1">
-      </div>
-      <div class="slide">
-        <img src="/images/anuncio2.jpg" alt="Anuncio 2">
-      </div>
-      <div class="slide">
-        <img src="/images/anuncio3.jpg" alt="Anuncio 3">
-      </div>
+    <div class="carousel" id="carousel">
+      <!-- Las imágenes se insertarán aquí dinámicamente -->
     </div>
-    <button class="carousel-button prev">‹</button>
-    <button class="carousel-button next">›</button>
-    <div class="indicators">
-      <span class="indicator"></span>
-      <span class="indicator"></span>
-      <span class="indicator"></span>
+    <button class="carousel-button prev" id="prevBtn">‹</button>
+    <button class="carousel-button next" id="nextBtn">›</button>
+    <div class="indicators" id="indicators">
     </div>
   </section>
+
+  <script type="module" src="/scripts/carousel.js"></script>
+
 
   <!--Productos destacados-->
   <section class="destacados">
@@ -86,18 +78,21 @@
         <h2>Materiales SADA</h2>
       </div>
       <div class="footer-info">
-        <p>Dirección: Lázaro Cárdenas No. 1705 Col. Puerto México Coatzacoalcos, Ver.</p>
-        <p>Teléfono: (+52) 9211101741</p>
-        <p>Email: m2gise@hotmail.com</p>
+        <p id="footer-direccion"></p>
+        <p id="footer-telefono"></p>
+        <p id="footer-email"></p>
       </div>
+
     </div>
-    <div class="footer-bottom">
-      <p>&copy; 2024 Materiales SADA. Todos los derechos reservados.</p>
+    <div class="footer-bottom" id="footer-bottom-text">
+      <!-- Aquí se llenará dinámicamente -->
     </div>
+
   </footer>
 
   <script type="module" src="/scripts/index.js"></script>
   <script type="module" src="/scripts/general.js"></script>
+  <script type="module" src="/scripts/carousel.js"></script>
 </body>
 
 </html>

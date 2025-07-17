@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gestión de Carrusel</title>
+  <link rel="stylesheet" href="/styles/gestion.css" />
+</head>
+
+<body>
+  <main class="carousel-admin">
+
+    <!-- Gestión de imágenes -->
+    <section class="carousel-section">
+      <h1>Gestión de Imágenes del Carrusel</h1>
+
+      <form id="upload-form">
+        <input type="file" id="image-input" accept="image/*" />
+        <button type="submit">Subir Imagen</button>
+      </form>
+
+      <div id="carousel-preview" class="carousel-preview">
+        <!-- Imágenes dinámicas -->
+      </div>
+    </section>
+
+    <!-- Edición de información -->
+    <section class="form-container">
+      <h2>Editar Información de la Empresa</h2>
+
+      <form id="editar-form">
+        <label for="sobreNosotros">Sobre Nosotros:</label>
+        <textarea id="sobreNosotros" rows="4" required></textarea>
+
+        <label for="direccion">Dirección:</label>
+        <input type="text" id="direccion" required />
+
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" required />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" required />
+
+        <h3>Información del Footer</h3>
+
+        <label for="footerDireccion">Dirección (Footer):</label>
+        <input type="text" id="footerDireccion" required />
+
+        <label for="footerTelefono">Teléfono (Footer):</label>
+        <input type="tel" id="footerTelefono" required />
+
+        <label for="footerEmail">Email (Footer):</label>
+        <input type="email" id="footerEmail" required />
+
+        <label for="footerBottom">Texto Footer Bottom:</label>
+        <input type="text" id="footerBottom" required />
+
+        <button type="submit">Guardar Cambios</button>
+      </form>
+
+      <div id="mensaje" class="mensaje"></div>
+    </section>
+  </main>
+
+  <script type="module" src="/scripts/carousel-admin.js"></script>
+  <script type="module" src="/scripts/gestion.js"></script>
+  <script type="module" src="/scripts/auth.js"></script>
+  <script type="module" src="/scripts/firebaseConfig.js"></script>
+
+</body>
+
+</html>
