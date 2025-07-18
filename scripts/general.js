@@ -10,29 +10,47 @@ closeSidebar.addEventListener("click", () => {
   sidebar.style.left = "-250px";
 });
 
-const footerDefault = {
-      direccion: "Lázaro Cárdenas No. 1705 Col. Puerto México Coatzacoalcos, Ver.",
-      telefono: "(+52) 9211101741",
-      email: "m2gise@hotmail.com"
-    };
+import { db } from './firebaseConfig.js';
+import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
 
-    function cargarFooter() {
-      const infoGuardada = localStorage.getItem("infoEmpresa");
-      const info = infoGuardada ? JSON.parse(infoGuardada) : footerDefault;
+const footerDefault = { 
+  direccion: "Lázaro Cárdenas No. 1705 Col. Puerto México Coatzacoalcos, Ver.",
+  telefono: "(+52) 9211101741",
+  email: "m2gise@hotmail.com",
+  footerBottom: "© 2024 Materiales SADA. Todos los derechos reservados."
+};
 
-      document.getElementById("footer-direccion").textContent = "Dirección: " + (info.footerDireccion || info.direccion);
-      document.getElementById("footer-telefono").textContent = "Teléfono: " + (info.footerTelefono || info.telefono);
-      document.getElementById("footer-email").textContent = "Email: " + (info.footerEmail || info.email);
-    }
+async function cargarFooter() {
+  try {
+    const docSnap = await getDoc(doc(db, "empresa", "info"));
+    const info = docSnap.exists() ? docSnap.data() : footerDefault;
 
-    window.addEventListener("DOMContentLoaded", cargarFooter);
+    document.getElementById("footer-direccion").textContent = "Dirección: " + (info.footerDireccion || info.direccion);
+    document.getElementById("footer-telefono").textContent = "Teléfono: " + (info.footerTelefono || info.telefono);
+    document.getElementById("footer-email").textContent = "Email: " + (info.footerEmail || info.email);
+  } catch (error) {
+    console.error("Error al cargar el footer:", error);
+    // Mostrar datos por defecto en caso de error
+    document.getElementById("footer-direccion").textContent = "Dirección: " + footerDefault.direccion;
+    document.getElementById("footer-telefono").textContent = "Teléfono: " + footerDefault.telefono;
+    document.getElementById("footer-email").textContent = "Email: " + footerDefault.email;
+  }
+}
 
-    function cargarFooterBottom() {
-      const infoGuardada = localStorage.getItem("infoEmpresa");
-      const info = infoGuardada ? JSON.parse(infoGuardada) : {};
-      const textoDefault = "© 2024 Materiales SADA. Todos los derechos reservados.";
+async function cargarFooterBottom() {
+  try {
+    const docSnap = await getDoc(doc(db, "empresa", "info"));
+    const info = docSnap.exists() ? docSnap.data() : {};
 
-      document.getElementById("footer-bottom-text").textContent = info.footerBottom || textoDefault;
-    }
+    const textoDefault = "© 2024 Materiales SADA. Todos los derechos reservados.";
+    document.getElementById("footer-bottom-text").textContent = info.footerBottom || textoDefault;
+  } catch (error) {
+    console.error("Error al cargar el footer bottom:", error);
+    document.getElementById("footer-bottom-text").textContent = "© 2024 Materiales SADA. Todos los derechos reservados.";
+  }
+}
 
-    window.addEventListener("DOMContentLoaded", cargarFooterBottom);
+window.addEventListener("DOMContentLoaded", () => {
+  cargarFooter();
+  cargarFooterBottom();
+});
