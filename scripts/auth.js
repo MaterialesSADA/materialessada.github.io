@@ -1,10 +1,17 @@
-// auth.js
-import { auth, db } from './firebaseConfig.js'; // asegúrate que la ruta esté bien
+import { auth, db } from './firebaseConfig.js'; 
 
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
 import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
 
+let logoutTimeout = null;
+
 onAuthStateChanged(auth, async (user) => {
+    // Si el usuario está autenticado, cancela cualquier redirección pendiente
+    if (logoutTimeout) {
+        clearTimeout(logoutTimeout);
+        logoutTimeout = null;
+    }
+
     if (user) {
         const uid = user.uid;
 
@@ -34,7 +41,8 @@ onAuthStateChanged(auth, async (user) => {
         }
 
     } else {
-        // No logueado
-        window.location.href = "/screens/login.html";
+        logoutTimeout = setTimeout(() => {
+            window.location.href = "/screens/login.html";
+        }, 1500);
     }
 });
