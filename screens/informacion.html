@@ -10,18 +10,31 @@
 </head>
 
 <body>
+  <!--Navegación-->
   <nav>
     <button id="hamburger" class="hamburger">&#9776;</button>
+
     <div class="banner">
-      <img src="/images/logo-nb.PNG" alt="Logo de Materiales SADA" class="logo" />
+      <img src="/images/logo-nb.PNG" alt="Logo de Materiales SADA" class="logo">
       <h1>Materiales SADA</h1>
     </div>
+
     <ul class="menu">
-      <li><a href="../index.html">Menú</a></li>
+      <li><a href="index.html">Menú</a></li>
       <li><a href="/screens/productos.html">Productos</a></li>
       <li><a href="/screens/informacion.html">Conócenos</a></li>
     </ul>
   </nav>
+
+  <!-- AÑADE ESTO ABAJO -->
+  <div id="sidebar" class="sidebar">
+    <span id="closeSidebar" class="close-btn">&times;</span>
+    <ul>
+      <li><a href="index.html">Menú</a></li>
+      <li><a href="/screens/productos.html">Productos</a></li>
+      <li><a href="/screens/informacion.html">Conócenos</a></li>
+    </ul>
+  </div>
 
   <div class="container">
     <section class="info">
@@ -64,6 +77,7 @@
 
   </footer>
   <script type="module" src="/scripts/info.js"></script>
+  <script type="module" src="/scripts/general.js"></script>
 </body>
 
 </html>
